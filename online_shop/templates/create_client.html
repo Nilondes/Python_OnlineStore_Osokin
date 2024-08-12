@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client registration</title>
+</head>
+<body>
+<h1>Add personal data</h1>
+<form method="post" action="{% url 'create_client' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Confirm">
+    <br>
+    <input type="button" value="Cancel" onclick="location.href='{% url 'base' %}'">
+</form>
+</body>
+</html>

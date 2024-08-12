@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+{% block content %}
+<h2>Register</h2>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Register</button>
+</form>
+{% endblock %}
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'base' %}'">
+</body>
+</html>

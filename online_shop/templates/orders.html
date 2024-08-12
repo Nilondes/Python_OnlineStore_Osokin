@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+{% if orders %}
+<h3>List of orders</h3>
+<ul>
+    {% for order in orders %}
+    <li>
+        <div role="button" onclick="location.href='{% url "order_detail" order.id %}'"> oder id: {{ order.id }} status: {{ order.order_status }} </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+You have no orders!
+{% endif %}
+<br>
+<form method="get" action="{% url 'add_to_cart' %}">
+    {% csrf_token %}
+    <button type="submit">Add products to cart</button>
+    <br>
+</form>
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'base' %}'">
+</form>
+</body>
+</html>

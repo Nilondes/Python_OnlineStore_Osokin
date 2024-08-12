@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+<form action="{% url 'product_list' %}">
+    {% csrf_token %}
+    <button type="submit">Products</button>
+</form>
+<br>
+{% if request.user.is_authenticated %}
+<form method="get" action="{% url 'cabinet' %}">
+    {% csrf_token %}
+    <button type="submit">Cabinet</button>
+</form>
+<br>
+<form method="get" action="{% url 'orders' %}">
+    {% csrf_token %}
+    <button type="submit">Orders</button>
+</form>
+<br>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+{% else %}
+<form action="{% url 'login' %}">
+    {% csrf_token %}
+    <button type="submit">Login</button>
+</form>
+<br>
+<form action="{% url 'register' %}">
+    {% csrf_token %}
+    <button type="submit">Registration</button>
+</form>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,4 @@
+.venv/
+.idea
+online_shop/db.sqlite3
+__picache__/

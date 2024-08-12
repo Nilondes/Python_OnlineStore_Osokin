@@ -7,9 +7,13 @@
 <body>
 <h1>Product List</h1>
 <ul>
-{% for product in products %}
-<li>{{ product.name }}</li>
-{% endfor %}
+    {% for product in products %}
+    <li>
+        <div role="button" onclick="location.href='{% url "product_detail" product.id %}'"> {{ product.name }} </div>
+    </li>
+    {% endfor %}
 </ul>
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'base' %}'">
 </body>
 </html>

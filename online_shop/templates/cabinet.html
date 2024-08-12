@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabinet</title>
+</head>
+<body>
+{% if object_list %}
+{% for client in object_list %}
+{{ client.client_first_name }}
+{{ client.client_middle_name }}
+{{ client.client_last_name}}
+{{ client.client_email }}
+{% endfor %}
+{% else %}
+<form method="get" action="{% url 'create_client' %}">
+    {% csrf_token %}
+    <button type="submit">Edit personal information</button>
+    <br>
+</form>
+{% endif %}
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'base' %}'">
+</form>
+</body>
+</html>

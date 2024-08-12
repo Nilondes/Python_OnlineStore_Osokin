@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Product detail</title>
 </head>
 <body>
 <h1>{{ product.name }}</h1>
+<img src="{{ product.image.url }}">
 <p>{{ product.description }}</p>
 <p>Price: {{ product.price }}</p>
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'product_list' %}'">
 </body>
 </html>

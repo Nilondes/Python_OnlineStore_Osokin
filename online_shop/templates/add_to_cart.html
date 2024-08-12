@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to cart</title>
+</head>
+<body>
+<h1>Add to cart</h1>
+<form method="post" action="{% url 'add_to_cart' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add to cart">
+</form>
+<br>
+<input type="button" value="Back" onclick="location.href='{% url 'orders' %}'">
+</body>
+</html>

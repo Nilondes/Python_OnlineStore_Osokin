@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order detail</title>
+</head>
+<body>
+{% for cart in carts %}
+<ul>
+    <li>
+        <p> {{ cart.product }}</p>
+        <p> amount: {{ cart.quantity }}</p>
+    </li>
+</ul>
+{% if order.order_status == 'new' %}
+<input type="button" value="Remove" onclick="location.href='{% url 'remove_cart' order.id cart.id %}'">
+<br>
+{% endif %}
+{% endfor %}
+{% if status == 1 %}
+<h3>There is only {{amount}} of {{product}} in the storage! Try to order less.</h3>
+{% endif %}
+<br>
+{% if order.order_status == 'new' and carts %}
+<input type="button" value="Submit" onclick="location.href='{% url 'submit_order' order.id%}'">
+{% endif %}
+<input type="button" value="Back" onclick="location.href='{% url 'orders' %}'">
+</body>
+</html>
