@@ -6,7 +6,7 @@ COPY requirements.txt /online_shop/
 
 RUN pip install -r requirements.txt
 
-COPY . /app/
+COPY . /online_shop/
 
 RUN ["chmod", "+x", "./docker-entrypoint.sh"]
 ENTRYPOINT ["bash", "-c"]
